@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+
+    <meta author="Yo mero vandolero">
+    <meta description = "Fromulario integrado">
+    <meta charset="UTF-8">
+    <meta keywords ="El papu de papus">
+    <link rel="shortcut icon" href="./static/images/favicon.ico" type="image/x-icon">
+    <!--<link rel="stylesheet" href="./static/css/styles2.css" type="text/css">-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <style>
+        *{
+
+            margin: 0;
+            padding: 0;
+
+
+
+        }
+        body{
+            background-color: #f2f2f2;
+            text-align: center;
+            font-family: sans-serif;
+
+        }
+
+        .encabezado{
+        display: block;
+        font: 25px Arial;
+        width:100%;
+        height:70%;
+        color: #D3D3D3;
+        }
+        .encabezado img{
+              width: 400px;
+              height: 200px;
+        }
+
+        .Titulo1{
+        color: #F23A4E;
+        text-align: center;
+        font: 20px Arial;
+        }
+
+
+input[type=text], select {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=password], select {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 25%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=email], select {
+  width: 25%;;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=date], select {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+#tablita {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#tablita td, #tablita th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#tablita tr:nth-child(even){background-color: #f2f2f2;}
+
+#tablita tr:hover {background-color: #ddd;}
+
+#tablita th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+    </style>
+
+
+    <title>6:27</title>
+</head>
+
+<body>
+
+<div class="encabezado">
+<header>
+    <img src="./static/images/draingirls.png">
+</header>
+</div>
+
+<div class="Titulo1">
+
+<h1>Registro</h1>
+</div>
+<div class="container">
+
+<form action="{{url_for('guardar_info')}}" method="post">
+
+    <label for="Nombre">Nombre </label>
+    <input type="text" id="Nombre" name="nombre" placeholder="Ingresa Nombre" required><br>
+    <br>
+    <label for="Correo">Correo </label>
+    <input type="email" id="Correo" name="correo"  placeholder="Ingresa Correo" required><br>
+    <br>
+    <label for="Usuario">Nombre de usuario </label>
+    <input type="text" id="Usuario" name="usuario" placeholder="Ingresa Nombre de usuario" required><br>
+    <br>
+    <br>
+    <label>Sexo</label>
+    <select id="" name="sexo" required>
+        <option value="Otro">Otro</option>
+        <option value="Masculino">Masculino</option>
+        <option value="Femenino">Femenino</option>
+    </select><br>
+    <br>
+    <label for="Contra">Contraseña </label>
+    <input type="password" id="Contra" name="contra" required><br>
+    <br>
+    <label>Quiero notificaciones de nuevas entradas a mi correo</label>
+    <input type="checkbox"><br>
+    <br>
+    <input class="btn btn-default" type="submit" value="Enviar">
+</div>
+
+
+
+</form>
+
+<div>
+    <h1 class="titulo">Respuestas</h1>
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <div id="tablita">
+        <table>
+            <thead>
+                <tr>
+                    <td>Nombre</td>
+                    <td>Correo</td>
+                    <td>Usuario</td>
+                    <td>Sexo</td>
+                    <td>Contraseña</td>
+                    <td>Editar</td>
+                    <td>Eliminar</td>
+                </tr>
+            </thead>
+            <tbody>
+            {%for producto in productos%}
+            <tr>
+                <td>{{producto.0}}</td>
+                <td>{{producto.1}}</td>
+                <td>{{producto.2}}</td>
+                <td>{{producto.3}}</td>
+                <td>{{producto.4}}</td>
+                <td><a href="/consultar_producto/{{producto.2}}">Editar</a></td>
+                <td><a href="/eliminar_producto/{{producto.2}}">Eliminar</a></td>
+            </tr>
+            {% endfor %}
+
+
+            </tbody>
+        </table>
+    </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+</html>

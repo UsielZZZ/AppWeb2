@@ -1,0 +1,25 @@
+*{
+    background:black;
+
+     }
+     .grid-container{
+        text-align: center;
+        width: 100%;
+        color: yellow;
+        }
+        .grid-container section{
+
+        display: inline-block;
+        margin: 50px;
+        }
+        .grid-container article{
+        margin: 50px;
+        width: 100%;
+        color: #D3D3D3;
+        font: 15px Arial;
+        }
+        .grid-container img{
+        width=300px;
+        height:300px;
+        margin: 15px auto;
+        }
