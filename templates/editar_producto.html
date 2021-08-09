@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+
+    <meta author="Yo mero vandolero">
+    <meta description = "Fromulario integrado">
+    <meta charset="UTF-8">
+    <meta keywords ="El papu de papus">
+    <link rel="shortcut icon" href="./static/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./static/css/styles2.css" type="text/css">
+    <style>
+        *{
+
+            margin: 0;
+            padding: 0;
+
+
+
+        }
+        body{
+            text-align: center;
+            font-family: sans-serif;
+
+        }
+
+        .encabezado{
+        display: block;
+        font: 25px Arial;
+        width:100%;
+        height:70%;
+        color: #D3D3D3;
+        }
+        .encabezado img{
+              width: 400px;
+              height: 200px;
+        }
+
+        .Titulo1{
+        color: #F23A4E;
+        text-align: center;
+        font: 20px Arial;
+        }
+
+
+input[type=text], select {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=password], select {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 25%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=email], select {
+  width: 25%;;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=date], select {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+#tablita {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#tablita td, #tablita th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#tablita tr:nth-child(even){background-color: #f2f2f2;}
+
+#tablita tr:hover {background-color: #ddd;}
+
+#tablita th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+    </style>
+
+    <title>11:16</title>
+</head>
+
+<body>
+
+<div class="encabezado">
+<header>
+
+</header>
+</div>
+
+<div class="Titulo1">
+
+<h1>Editar Registro</h1>
+</div>
+
+
+
+<div class="grid-container">
+<form action="/editar_producto/{{producto.2}}" method="post">
+
+    <label for="Nombre">Nombre </label>
+    <input type="text" id="Nombre" name="nombre" placeholder="Ingresa Nombre" required value="{{producto.0}}"><br>
+    <br>
+    <label for="Correo">Correo </label>
+    <input type="email" id="Correo" name="correo"  placeholder="Ingresa Correo" required value="{{producto.1}}"><br>
+    <br>
+    <label for="Usuario">Nombre de usuario </label>
+    <input type="text" id="Usuario" name="usuario" placeholder="Ingresa Nombre de usuario" required value="{{producto.2}}"><br>
+    <br>
+    <br>
+    <label>Sexo</label>
+    <select id="" name="sexo" required>
+        <option value="Otro">{{producto.4}}</option>
+        <option value="Masculino">{{producto.4}}</option>
+        <option value="Femenino">{{producto.4}}</option>
+    </select><br>
+    <br>
+    <label for="Contra">Contraseña </label>
+    <input type="password" id="Contra" name="contra" required value="{{producto.4}}"><br>
+    <br>
+    <label>Quiero notificaciones de nuevas entradas a mi correo</label>
+    <input type="checkbox"><br>
+    <br>
+    <input type="submit">
+</div>
+
+
+</form>
+
+</body>
+</html>
